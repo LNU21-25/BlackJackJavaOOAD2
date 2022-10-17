@@ -7,7 +7,8 @@ public class Soft17HitStrategy implements HitStrategy {
   private static final int hitLimit = 17;
 
   public boolean doHit(Player dealer) {
-    if (dealer.calcScore() > hitLimit) {
+    int dScore = dealer.calcScore();
+    if (dScore > hitLimit) {
       return false;
     } else {
       int numAces = 0;
@@ -16,7 +17,7 @@ public class Soft17HitStrategy implements HitStrategy {
           numAces += 1;
         }
       }
-      if (dealer.calcScore() < hitLimit || (numAces != 0 && dealer.calcScore() == hitLimit)) {
+      if (dScore < hitLimit || (numAces != 0 && dScore == hitLimit)) {
         return true;
       } else {
         return false;

@@ -1,7 +1,6 @@
 package model.rules;
 
 import model.Dealer;
-import model.Deck;
 import model.Player;
 
 /**
@@ -16,5 +15,6 @@ public interface NewGameStrategy {
    * @param player The player to deal cards to.
    * @return True if the game could be started.
    */
-  boolean newGame(Deck deck, Dealer dealer, Player player);
+  boolean newGame(/*Deck deck,*/ Dealer dealer, Player player);
+
 }

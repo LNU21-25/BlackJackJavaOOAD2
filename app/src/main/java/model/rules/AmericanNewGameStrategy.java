@@ -1,13 +1,20 @@
 package model.rules;
 
-import model.Card;
+//import model.Card;
 import model.Dealer;
-import model.Deck;
+//import model.Deck;
 import model.Player;
 
 class AmericanNewGameStrategy implements NewGameStrategy {
 
-  public boolean newGame(Deck deck, Dealer dealer, Player player) {
+  public boolean newGame(/*Deck deck,*/ Dealer dealer, Player player) {
+
+    dealer.getShowCard(true, player);
+    dealer.getShowCard(true, dealer);
+    dealer.getShowCard(true, player);
+    dealer.getShowCard(false, dealer);
+
+    /*
     Card.Mutable c;
 
     c = deck.getCard();
@@ -25,7 +32,8 @@ class AmericanNewGameStrategy implements NewGameStrategy {
     c = deck.getCard();
     c.show(false);
     dealer.dealCard(c);
-
+    */
     return true;
+    
   }
 }
