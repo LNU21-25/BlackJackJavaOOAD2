@@ -5,7 +5,7 @@ package model;
  */
 public class Game {
 
-  private Dealer dealer;
+  public Dealer dealer;
   private Player player;
 
   /**

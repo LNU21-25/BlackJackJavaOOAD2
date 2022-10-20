@@ -3,12 +3,13 @@ package controller;
 import model.Game;
 import view.EnglishView;
 //import view.SwedishView;
-import view.View;
+//import view.View;
 
 /**
  * Starts the application using the console.
  */
 public class App {
+  
   /**
    * Starts the game.
 
@@ -17,11 +18,11 @@ public class App {
   public static void main(String[] args) {
 
     Game g = new Game(); 
-    View v = new EnglishView();
+    EnglishView v = new EnglishView();
     //View swe = new SwedishView();
-    Player ctrl = new Player();
+    Player ctrl = new Player(g, v);
 
-    while (ctrl.play(g, v)) {
+    while (ctrl.play()) {
 
     }
   }

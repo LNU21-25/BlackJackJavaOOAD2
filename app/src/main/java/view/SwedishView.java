@@ -23,17 +23,28 @@ public class SwedishView implements View {
 
    * @return the pressed character.
    */
-  public int getInput() {
+  public Selection getInput() {
     try {
       int c = System.in.read();
       while (c == '\r' || c == '\n') {
         c = System.in.read();
       }
-      return c;
+      switch (c) {
+        case 'p':
+          return Selection.startGame;
+        case 'h':
+          return Selection.hit;
+        case 's':
+          return Selection.stand;
+        case 'q':
+        return Selection.quit;
+        default:
+      }
     } catch (java.io.IOException e) {
       System.out.println("" + e);
-      return 0;
+      return Selection.startGame;
     }
+    return Selection.startGame;
   }
 
   /**
@@ -81,5 +92,11 @@ public class SwedishView implements View {
     }
     System.out.println("Poäng: " + score);
     System.out.println("");
+  }
+
+  public void delay() {
+    try {
+      Thread.sleep(1000);
+    } catch (Exception e) {}
   }
 }

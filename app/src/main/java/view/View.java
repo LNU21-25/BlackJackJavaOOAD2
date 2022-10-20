@@ -10,12 +10,16 @@ public interface View {
    */
   void displayWelcomeMessage();
 
+  public enum Selection {
+    startGame, hit, stand, quit
+  }
+
   /**
    * Returns pressed characters from the keyboard.
 
    * @return the pressed character.
    */
-  int getInput();
+  Selection getInput();
 
   /**
    * Displays a card.
@@ -46,4 +50,6 @@ public interface View {
    * @param dealerIsWinner True if the dealer is the winner.
    */
   void displayGameOver(boolean dealerIsWinner);
+
+  void delay();
 }

@@ -7,6 +7,7 @@ import model.Player;
  * Rule interface for mangaing the start of a new game. I.e. dealing the cards.
  */
 public interface NewGameStrategy {
+  
   /**
    * Encapsulates the start of a new game. I.e. should deal cards to dealer and player according to some rule.
 

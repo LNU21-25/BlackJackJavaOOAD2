@@ -1,41 +1,67 @@
 package controller;
 
 import model.Game;
-import view.View;
-
+import view.EnglishView;
+import view.View.Selection;
 
 /**
  * Scenario controller for playing the game.
  */
-public class Player {
+public class Player implements model.CardDeltObserver {
+
+  public Game game;
+  // public View view;
+  public EnglishView view;
+
+  public Player(Game g, EnglishView v/* View v */) {
+    game = g;
+    view = v;
+
+    game.dealer.addSub(this);
+  }
 
   /**
    * Runs the play use case.
-
+   * 
    * @param game The game state.
    * @param view The view to use.
    * @return True as long as the game should continue.
    */
-  public boolean play(Game game, View view) {
-    view.displayWelcomeMessage();
+  public boolean play() {
 
-    view.displayDealerHand(game.getDealerHand(), game.getDealerScore());
-    view.displayPlayerHand(game.getPlayerHand(), game.getPlayerScore());
- 
+    deal();
+
     if (game.isGameOver()) {
       view.displayGameOver(game.isDealerWinner());
     }
 
-    int input = view.getInput();
+    Selection input = view.getInput();
 
-    if (input == 'p') {
-      game.newGame();
-    } else if (input == 'h') {
-      game.hit();
-    } else if (input == 's') {
-      game.stand();
+    switch (input) {
+      case startGame:
+        game.newGame();
+        break;
+      case hit:
+        game.hit();
+        break;
+      case stand:
+        game.stand();
+        break;
+      default:
     }
-
-    return input != 'q';
+    return input != Selection.quit;
   }
+
+  public void cardDelt() {
+    deal();
+    view.delay();
+  }
+
+  public void deal() {
+    view.displayWelcomeMessage();
+
+    view.displayDealerHand(game.getDealerHand(), game.getDealerScore());
+    view.displayPlayerHand(game.getPlayerHand(), game.getPlayerScore());
+  }
+
 }

@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 import model.rules.HitStrategy;
 import model.rules.NewGameStrategy;
 import model.rules.RulesFactory;
@@ -14,6 +16,7 @@ public class Dealer extends Player {
   private NewGameStrategy newGameRule;
   private HitStrategy hitRule;
   private WinRule winRule;
+  public ArrayList<CardDeltObserver> subscribers;
 
   /**
    * Initializing constructor.
@@ -25,6 +28,8 @@ public class Dealer extends Player {
     newGameRule = rulesFactory.getNewGameRule();
     hitRule = rulesFactory.getHitRule();
     winRule = rulesFactory.getWinRule();
+    subscribers = new ArrayList<CardDeltObserver>();
+
   }
 
   /**
@@ -88,7 +93,6 @@ public class Dealer extends Player {
     if (deck != null) {
       showHand();
       while (hitRule.doHit(this) == true) {
-        hitRule.doHit(this);
         Card.Mutable c = deck.getCard();
         c.show(true);
         dealCard(c);  
@@ -102,7 +106,22 @@ public class Dealer extends Player {
   public void getShowCard(boolean shown, Player player) { 
     Card.Mutable c = this.deck.getCard();
     c.show(shown);
+    notifySubs();
     player.dealCard(c);
+  }
+
+  public void notifySubs() {
+    for (CardDeltObserver cdo : subscribers) {
+      cdo.cardDelt();
+    }
+  }
+
+  public void addSub(CardDeltObserver cdo) {
+    subscribers.add(cdo);
+  }
+
+  public void removeSub(CardDeltObserver cdo) {
+    subscribers.remove(cdo);
   }
 
 }
