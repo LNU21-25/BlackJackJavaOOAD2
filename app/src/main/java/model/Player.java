@@ -111,7 +111,7 @@ public class Player {
     int ret = 0;
     for (Card c : getHand()) {
       if (c.getValue() == Card.Value.Ace) {
-        ret ++;
+        ret++;
       }
     }
     return ret;
