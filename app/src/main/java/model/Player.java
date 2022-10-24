@@ -81,6 +81,39 @@ public class Player {
     return score;
   }
 
-  
+  /**
+   * returns the score without changing the value of an ace.
 
+   * @return int score
+   */
+  public int calcScoreHigh() {
+    int[] cardScores = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11 };
+    assert (cardScores.length == Card.Value.Count.ordinal())
+        : "Card Scores array size does not match number of card values";
+
+    int score = 0;
+
+    for (Card c : getHand()) {
+      if (c.getValue() != Card.Value.Hidden) {
+        score += cardScores[c.getValue().ordinal()];
+      }
+    }
+
+    return score;
+  }
+
+  /**
+   * returns the score without changing the value of an ace.
+
+   * @return int numAces
+   */
+  public int numAces() {
+    int ret = 0;
+    for (Card c : getHand()) {
+      if (c.getValue() == Card.Value.Ace) {
+        ret ++;
+      }
+    }
+    return ret;
+  }
 }

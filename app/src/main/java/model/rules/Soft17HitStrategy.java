@@ -1,6 +1,5 @@
 package model.rules;
 
-import model.Card;
 import model.Player;
 
 /**
@@ -16,14 +15,10 @@ public class Soft17HitStrategy implements HitStrategy {
    * @return boolean
    */
   public boolean doHit(Player dealer) {
+    int deTopScore = dealer.calcScoreHigh();
     int deScore = dealer.calcScore();
-    int numAces = 0;
-    for (Card c : dealer.getHand()) {
-      if (c.getValue() == Card.Value.Ace) {
-        numAces += 1;
-      }
-    }
-    if (deScore < hitLimit || (numAces != 0 && deScore == hitLimit)) {
+    int numAces = dealer.numAces();
+    if (deScore == deTopScore && numAces > 0 && deScore == hitLimit) {
       return true;
     } else {
       return false;

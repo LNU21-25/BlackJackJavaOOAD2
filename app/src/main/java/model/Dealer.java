@@ -55,9 +55,7 @@ public class Dealer extends Player {
    */
   public boolean hit(Player player) {
     if (deck != null && player.calcScore() < maxScore && !isGameOver() && hitRule.doHit(player)) {
-      
       getShowCard(true, player);
-
       return true;
     }
     return false;

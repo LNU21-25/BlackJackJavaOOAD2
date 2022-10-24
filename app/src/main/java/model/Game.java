@@ -6,7 +6,7 @@ package model;
 public class Game {
 
   public Dealer dealer;
-  private Player player;
+  public Player player;
 
   /**
    * Constructor that creates a new game instance with a dealer and player.
