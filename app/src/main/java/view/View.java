@@ -9,7 +9,10 @@ public interface View {
    * Shows a welcome message.
    */
   void displayWelcomeMessage();
-
+  
+  /**
+   * defines selection types.
+   */
   public enum Selection {
     startGame, hit, stand, quit
   }
@@ -51,5 +54,8 @@ public interface View {
    */
   void displayGameOver(boolean dealerIsWinner);
 
+  /**
+   * calls a for the thread to sleep.
+   */
   void delay();
 }

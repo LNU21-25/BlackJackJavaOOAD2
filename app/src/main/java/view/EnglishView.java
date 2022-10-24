@@ -35,7 +35,7 @@ public class EnglishView implements View {
         case 's':
           return Selection.stand;
         case 'q':
-        return Selection.quit;
+          return Selection.quit;
         default:
       }
     } catch (java.io.IOException e) {
@@ -92,9 +92,14 @@ public class EnglishView implements View {
 
   }
 
+  /**
+   * delays the program for suspense.
+   */
   public void delay() {
     try {
       Thread.sleep(1000);
-    } catch (InterruptedException e) { }
+    } catch (InterruptedException e) { 
+      System.out.print("");
+    }
   }
 }

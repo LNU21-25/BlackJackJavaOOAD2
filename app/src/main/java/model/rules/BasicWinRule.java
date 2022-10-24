@@ -2,14 +2,17 @@ package model.rules;
 
 import model.Player;
 
+/**
+ * defines a standard/basic winRule.
+ */
 public class BasicWinRule implements WinRule {
 
   private static final int blackJack = 21;
 
   /** defines the winRule.
 
-   * @param player
-   * @param dealer
+   * @param player player
+   * @param dealer dealer
    * @return boolean
    */
   @Override

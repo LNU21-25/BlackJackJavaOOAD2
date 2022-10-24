@@ -13,6 +13,12 @@ public class Player implements model.CardDeltObserver {
   // public View view;
   public EnglishView view;
 
+  /**
+   * Constructs a player and takes in a game and a view.
+
+   *@param g game
+   *@param v view
+   */
   public Player(Game g, EnglishView v/* View v */) {
     game = g;
     view = v;
@@ -22,9 +28,7 @@ public class Player implements model.CardDeltObserver {
 
   /**
    * Runs the play use case.
-   * 
-   * @param game The game state.
-   * @param view The view to use.
+
    * @return True as long as the game should continue.
    */
   public boolean play() {

@@ -37,7 +37,7 @@ public class SwedishView implements View {
         case 's':
           return Selection.stand;
         case 'q':
-        return Selection.quit;
+          return Selection.quit;
         default:
       }
     } catch (java.io.IOException e) {
@@ -94,9 +94,14 @@ public class SwedishView implements View {
     System.out.println("");
   }
 
+  /**
+   * delays the program for suspense.
+   */
   public void delay() {
     try {
       Thread.sleep(1000);
-    } catch (Exception e) {}
+    } catch (Exception e) {
+      System.out.print("");
+    }
   }
 }

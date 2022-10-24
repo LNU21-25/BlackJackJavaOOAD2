@@ -3,24 +3,27 @@ package model.rules;
 import model.Card;
 import model.Player;
 
+/**
+ * defines a hit strategy for the dealer.
+ */
 public class Soft17HitStrategy implements HitStrategy {
   private static final int hitLimit = 17;
-
   
-  /** defines implemented method "doHit".
+  /** 
+   * defines implemented method "doHit".
 
-   * @param dealer
+   * @param dealer dealer
    * @return boolean
    */
   public boolean doHit(Player dealer) {
-    int dScore = dealer.calcScore();
+    int deScore = dealer.calcScore();
     int numAces = 0;
     for (Card c : dealer.getHand()) {
       if (c.getValue() == Card.Value.Ace) {
         numAces += 1;
       }
     }
-    if (dScore < hitLimit || (numAces != 0 && dScore == hitLimit)) {
+    if (deScore < hitLimit || (numAces != 0 && deScore == hitLimit)) {
       return true;
     } else {
       return false;

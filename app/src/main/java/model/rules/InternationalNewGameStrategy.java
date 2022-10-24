@@ -8,9 +8,9 @@ class InternationalNewGameStrategy implements NewGameStrategy {
   
   /** defines the implemented method, newGame.
 
-   * @param dealer
-   * @param player
-   * @return boolean
+   * @param dealer dealer
+   * @param player player
+   * @return boolean true
    */
   public boolean newGame(Dealer dealer, Player player) {
     dealer.getShowCard(true, player);

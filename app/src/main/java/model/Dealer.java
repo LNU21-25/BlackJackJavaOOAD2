@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-
 import model.rules.HitStrategy;
 import model.rules.NewGameStrategy;
 import model.rules.RulesFactory;
@@ -126,7 +125,7 @@ public class Dealer extends Player {
   }
 
   /**
-   * adds a card delt subscriber 
+   * adds a card delt subscriber.
    */
   public void addSub(CardDeltObserver cdo) {
     subscribers.add(cdo);
