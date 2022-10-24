@@ -6,6 +6,12 @@ import model.Player;
 public class Soft17HitStrategy implements HitStrategy {
   private static final int hitLimit = 17;
 
+  
+  /** defines implemented method "doHit".
+
+   * @param dealer
+   * @return boolean
+   */
   public boolean doHit(Player dealer) {
     int dScore = dealer.calcScore();
     int numAces = 0;

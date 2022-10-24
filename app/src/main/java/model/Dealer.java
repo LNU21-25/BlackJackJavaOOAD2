@@ -103,6 +103,12 @@ public class Dealer extends Player {
     }
   }
 
+  /**
+   * deals a card and notifys subscribers.
+
+   *@param shown whether ther card is shown or not
+   *@param player the player to recieve the card
+   */
   public void getShowCard(boolean shown, Player player) { 
     Card.Mutable c = this.deck.getCard();
     c.show(shown);
@@ -110,16 +116,25 @@ public class Dealer extends Player {
     player.dealCard(c);
   }
 
+  /**
+   * tells the subscribed player controller that a card has been delt.
+   */
   public void notifySubs() {
     for (CardDeltObserver cdo : subscribers) {
       cdo.cardDelt();
     }
   }
 
+  /**
+   * adds a card delt subscriber 
+   */
   public void addSub(CardDeltObserver cdo) {
     subscribers.add(cdo);
   }
 
+  /**
+   * removes a card delt subscriber.
+   */
   public void removeSub(CardDeltObserver cdo) {
     subscribers.remove(cdo);
   }

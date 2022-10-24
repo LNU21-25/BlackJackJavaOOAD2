@@ -52,11 +52,17 @@ public class Player implements model.CardDeltObserver {
     return input != Selection.quit;
   }
 
+  /**
+   * Shows delt cards.
+  */
   public void cardDelt() {
     deal();
     view.delay();
   }
 
+  /**
+   * calls the prints from the view.
+  */
   public void deal() {
     view.displayWelcomeMessage();
 

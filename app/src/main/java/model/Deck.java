@@ -45,7 +45,6 @@ public class Deck {
   }
 
   private void shuffle() {
-    
     for (int i = 0; i < 1017; i++) {
       int index = ThreadLocalRandom.current().nextInt(cards.size());
       Card.Mutable c = cards.get(index);

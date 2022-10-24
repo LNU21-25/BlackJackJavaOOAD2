@@ -3,8 +3,15 @@ package model.rules;
 import model.Player;
 
 public class BasicWinRule implements WinRule {
+
   private static final int blackJack = 21;
 
+  /** defines the winRule.
+
+   * @param player
+   * @param dealer
+   * @return boolean
+   */
   @Override
   public boolean winRule(Player player, Player dealer) {
     if (player.calcScore() > blackJack) {
