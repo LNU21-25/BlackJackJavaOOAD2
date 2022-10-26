@@ -1,10 +1,9 @@
 # BlackJack OO-Design
-This document describes the current design. Note that some dependencies have been left out for readability reasons. For example there are a lot of dependencies to the Card class.
 
 ## Class Diagram
-The application uses the model-view-controller (MVC) architectural pattern. The view is passive and gets called from the controller. 
+The application uses the model-view-controller (MVC) architectural pattern. The view is passive and gets called from the controller. It also 
 
-![class diagram](img/class_diagram.jpg)
+![class diagram](img/A3ClassDiagramRevised.jpg)
 
 ## Stand - Sequence Diagram
 This is the detailed sequence diagram for the `Game.stand` method. This is what should be implemented.
