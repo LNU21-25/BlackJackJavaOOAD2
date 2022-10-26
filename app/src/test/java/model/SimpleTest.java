@@ -10,7 +10,7 @@ public class SimpleTest {
 
   @Test
   public void testSoft17() {
-    /**controller.Player playerC = new controller.Player(new Game(), new EnglishView());
+    /*controller.Player playerC = new controller.Player(new Game(), new EnglishView());
     playerC.game.player.dealCard(new Card.Mutable(Color.Clubs, Value.Ace));
     playerC.game.dealer.dealCard(new Card.Mutable(Color.Hearts, Value.Ace));
     playerC.game.player.dealCard(new Card.Mutable(Color.Hearts, Value.Queen));
